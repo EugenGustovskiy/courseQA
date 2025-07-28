@@ -1,7 +1,6 @@
 package lesson_15;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -44,9 +43,15 @@ public class Main {
 
         ElementComparator.compareElements(element1, element2);
 
-        String yourUsername = "";
-        String yourPassword = "";
-        AndersenAuthorization.login(driver, yourUsername, yourPassword);
+        String email = "testemailivanov@gmail.com";
+        String password = "6548TEST321!";
+        AndersenAuthorization.login(driver, email, password);
+        WebElement signOutButton = driver.findElement(By.xpath("//div[contains(text(),'Sign Out')]/parent::div"));
+        signOutButton.click();
+
+        String imagePath = "D:\\EugenGustovskiy\\Andersen\\AndersenWeb\\AndersenWeb\\src\\test\\resources\\dog.jpg";
+
+        ProfilePhotoUploader.uploadPhoto(driver, email, password, imagePath);
 
         driver.quit();
     }

@@ -5,21 +5,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AndersenAuthorization {
-    public static void login(WebDriver driver, String username, String password) throws InterruptedException {
-        driver.get("https://learn.andersenlab.com/login/index.php");
+    public static void login(WebDriver driver, String email, String password) throws InterruptedException {
+        driver.get("https://qa-course-01.andersenlab.com/login");
 
         Thread.sleep(1000);
 
-        WebElement usernameInput = driver.findElement(By.id("username"));
-        WebElement passwordInput = driver.findElement(By.id("password"));
+        WebElement emailInput = driver.findElement(By.name("email"));
+        WebElement passwordInput = driver.findElement(By.name("password"));
 
-        usernameInput.sendKeys(username);
+        emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
 
-        // Click login button
-        WebElement loginButton = driver.findElement(By.id("loginbtn"));
+        WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         loginButton.click();
 
-        Thread.sleep(3000); // Wait for login to complete
+        Thread.sleep(3000);
     }
 }
