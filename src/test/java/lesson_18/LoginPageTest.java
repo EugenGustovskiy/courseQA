@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import io.qameta.allure.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class LoginPageTest {
@@ -38,6 +39,7 @@ public class LoginPageTest {
 
     @Test
     @DisplayName("Successful login redirects to dashboard")
+    @Description("Verify that after entering valid credentials, the user successfully logs in and the 'Sign Out' button is visible")
     void testSuccessfulLogin() {
         LoginPage loginPage = new LoginPage(driver);
 
@@ -55,4 +57,3 @@ public class LoginPageTest {
         Assertions.assertTrue(signOutButton.isDisplayed(), "Sign Out button should be visible after successful login");
     }
 }
-
