@@ -1,6 +1,7 @@
-package lesson_18;
+package lesson_20;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class RegistrationPage {
@@ -30,6 +31,7 @@ public class RegistrationPage {
 
     public void enterDateOfBirth(String dob) {
         driver.findElement(dateOfBirthField).sendKeys(dob);
+        driver.findElement(dateOfBirthField).sendKeys(Keys.ESCAPE);
     }
 
     public void enterEmail(String email) {

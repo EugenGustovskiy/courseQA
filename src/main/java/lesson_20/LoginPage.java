@@ -1,4 +1,4 @@
-package lesson_18;
+package lesson_20;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
